@@ -1,9 +1,31 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta http-equiv="refresh" content="0; url='https://sanjonescreeks.online/'" />
+    <title>Redirecting...</title>
+    <script>
+      // 1. Get the current path (e.g., /blue/anything)
+      const path = window.location.pathname; 
+      
+      // 2. Split the path into segments
+      const segments = path.split('/').filter(Boolean);
+
+      // 3. Define the destination
+      let destination = "https://sanjonescreeks.online/";
+
+      if (segments.length > 0) {
+        const subdomain = segments[0]; // "blue"
+        const remainingPath = segments.slice(1).join('/'); // "anything"
+        destination = `https://${subdomain}.sanjonescreeks.online/${remainingPath}`;
+      }
+
+      // 4. Perform the redirect
+      window.location.replace(destination);
+    </script>
+    
+    <meta http-equiv="refresh" content="5; url='https://sanjonescreeks.online/'" />
   </head>
   <body>
-    <p>Redirecting... <a href="https://google.com">Click here</a> if nothing happens.</p>
+    <p>Redirecting you to <script>document.write(destination);</script>...</p>
+    <p>If you are not redirected, <a href="https://sanjonescreeks.online/">click here</a>.</p>
   </body>
 </html>
