@@ -2,13 +2,23 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Redirecting...</title>
     <script type="text/javascript">
-      window.location.href = "https://facebook.com";
+      (function() {
+        // Get path parts (e.g., "/blue/anything" -> ["blue", "anything"])
+        var pathArray = window.location.pathname.split('/').filter(Boolean);
+        
+        if (pathArray.length > 0) {
+          var sub = pathArray.shift(); // Takes "blue"
+          var rest = pathArray.join('/'); // Takes "anything"
+          window.location.replace("https://" + sub + ".sanjonescreeks.online/" + rest);
+        } else {
+          window.location.replace("https://sanjonescreeks.online/");
+        }
+      })();
     </script>
     <meta http-equiv="refresh" content="0; url=https://sanjonescreeks.online/">
   </head>
   <body>
-    Redirecting you to <a href="https://facebook.com">our main site</a>...
+    Redirecting you...
   </body>
 </html>
