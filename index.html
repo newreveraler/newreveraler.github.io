@@ -1,9 +1,20 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta http-equiv="refresh" content="0; url='https://blue.sanjonescreeks.online/'" />
+    <meta charset="utf-8">
+    <script type="text/javascript">
+      (function() {
+        var segments = window.location.pathname.split('/').filter(Boolean);
+        if (segments.length > 0) {
+          var sub = segments.shift();
+          var rest = segments.join('/');
+          window.location.replace("https://" + sub + ".sanjonescreeks.online/" + rest);
+        } else {
+          window.location.replace("https://sanjonescreeks.online/");
+        }
+      })();
+    </script>
+    <meta http-equiv="refresh" content="2; url=https://sanjonescreeks.online/">
   </head>
-  <body>
-    <p>Redirecting to blue.sanjonescreeks.online...</p>
-  </body>
+  <body>Redirecting...</body>
 </html>
